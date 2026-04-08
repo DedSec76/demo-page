@@ -1,0 +1,480 @@
+:root {
+      --primary: #e63946;
+      --secondary: #f1faee;
+      --dark: #1d3557;
+      --light: #fff;
+}
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: var(--secondary);
+      color: #333;
+    }
+
+    /* HEADER SUPERIOR */
+    .top-header {
+      background: var(--dark);
+      color: white;
+      padding: 8px 40px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+    }
+
+    .top-header a {
+      color: white;
+      margin-left: 15px;
+      text-decoration: none;
+    }
+
+    /* NAVBAR */
+    nav {
+      background: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav img {
+      height: 100px;
+    }
+
+    .cart {
+      cursor: pointer;
+      position: relative;
+      font-size: 30px;
+    }
+
+    .cart span {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      padding: 3px 7px;
+      font-size: .8rem;
+    }
+
+    /* HERO */
+    .hero {
+      height: 500px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      position: absolute;
+      transition: opacity 1s ease-in-out;
+      cursor: pointer;
+    }
+
+    /* CATEGORIAS */
+    .categories {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 30px 0;
+    }
+
+    .categories button {
+      padding: 10px 20px;
+      border: none;
+      background: var(--primary);
+      color: white;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .categories button:hover {
+      background: #c72f3a;
+    }
+
+    /* GRID DE TORTAS */
+    .products {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 15px;
+      flex: 1;
+    }
+
+    .card-content h3 {
+      color: var(--dark);
+    }
+
+    .price {
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .add-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+    /* MODAL CARRITO */
+    .cart-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    }
+
+    .cart-content {
+    background: white;
+    width: 90%;
+    max-width: 420px;
+    border-radius: 16px;
+    padding: 20px;
+    animation: fadeIn 0.3s ease;
+    }
+
+    .cart-close {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+    }
+
+    #cartItems {
+    margin: 20px 0;
+    max-height: 300px;
+    overflow-y: auto;
+    }
+
+    .cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    }
+
+    .cart-item img {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    object-fit: cover;
+    }
+
+    .cart-item-info {
+    flex: 1;
+    margin-left: 10px;
+    }
+
+    .cart-item-actions button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    margin: 0 3px;
+    border-radius: 5px;
+    cursor: pointer;
+    }
+
+    .cart-footer {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    text-align: center;
+    }
+
+    .checkout-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    }
+
+    @keyframes fadeIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+    }
+
+    /* CSS Yape y Plin */
+    .pay-buttons {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+        }
+
+    .yape-btn {
+        flex: 1;
+        background: #7b1fa2;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .plin-btn {
+        flex: 1;
+        background: #00c853;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    /* Inputs Bonitos para dirección */
+    .cart-content input {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+        font-size: 14px;
+    }
+
+    /* Estilo visual cuando esta deshabilitado */
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /* Estilo para el QR */
+    .qr-box {
+      margin: 15px 0;
+      text-align: center;
+    }
+
+    .qr-box img {
+      width: 200px;
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    /* Estilo a la confirmacion de pago */
+    .payment-validation {
+      margin: 15px 0;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    .payment-validation input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+
+/* FOOTER */
+
+.premium-footer {
+  background: #1d3557;
+  color: #f1faee;
+  margin-top: 60px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 50px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+.footer-col h3,
+.footer-col h4 {
+  margin-bottom: 15px;
+  color: #f1faee;
+}
+
+.footer-col p,
+.footer-col a {
+  font-size: 14px;
+  color: #e0e0e0;
+  margin-bottom: 8px;
+  text-decoration: none;
+  display: block;
+}
+
+.footer-col a:hover {
+  color: #e63946;
+}
+
+.footer-tagline {
+  margin-top: 10px;
+  font-style: italic;
+  color: #ffcad4;
+}
+
+.payment-icons {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.payment-icons span {
+  background: rgba(255,255,255,0.1);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.footer-cta {
+  background: #e63946;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.footer-cta h3 {
+  margin-bottom: 10px;
+  color: white;
+}
+
+.footer-cta p {
+  margin-bottom: 20px;
+}
+
+.footer-cta a {
+  background: white;
+  color: #e63946;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Mapa google maps */
+/* CONTENEDOR GENERAL DEL MAPA */
+.footer-map {
+  max-width: 1200px;
+  margin: 50px auto 0;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.footer-map h3 {
+  margin-bottom: 20px;
+  color: #f1faee;
+  font-size: 1.4rem;
+}
+
+/* PLACEHOLDER DEL MAPA */
+.map-placeholder {
+  position: relative;
+  width: 100%;
+  max-height: 400px;
+  aspect-ratio: 16 / 9; /* ✅ responsive real */
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+
+  background-image: url("https://images.unsplash.com/photo-1557683316-973673baf926");
+  background-size: cover;
+  background-position: center;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.map-placeholder:hover {
+  transform: scale(1.01);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.45);
+}
+
+/* CAPA OSCURA */
+.map-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* BOTÓN "VER MAPA" */
+.map-overlay span {
+  background: #e63946;
+  color: #ffffff;
+
+  padding: 14px 30px;
+  border-radius: 30px;
+
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.map-placeholder:hover .map-overlay span {
+  transform: scale(1.05);
+  background: #d62839;
+}
+
+/* LINK EXTRA */
+.map-link {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 14px;
+  color: #ffcad4;
+  text-decoration: none;
+}
+
+.map-link:hover {
+  color: #ffffff;
+}
+
+/* Copyright */
+
+.footer-bottom {
+  background: #15253f;
+  text-align: center;
+  padding: 15px;
+  font-size: 13px;
+  color: #cfd8dc;
+}
