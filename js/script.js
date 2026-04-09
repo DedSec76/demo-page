@@ -11,14 +11,14 @@ const productsData = [
     name: "Torta de Fresa",
     price: 70,
     category: "frutales",
-    img: "images/cakeStrawberryGrid.jpg"
+    img: "images/cakeStrawberryGrid.webp"
   },
   {
     id: 3,
     name: "Torta Oreo",
     price: 75,
     category: "especiales",
-    img: "images/cakeOreo.jpg"
+    img: "images/cakeOreo.webp"
   }
 ];
 

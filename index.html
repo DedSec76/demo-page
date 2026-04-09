@@ -19,8 +19,7 @@
   <script src="js/script.js" defer></script>
 </head>
 <body>
-
-  <!-- HEADER -->
+    <!-- HEADER -->
     <header>
         <div class="top-header">
             <div>📞 999 888 777</div>
@@ -40,101 +39,102 @@
         </nav>
     </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <img src="images/cakeNuts.jpg" style="opacity:1">
-    <img src="images/cakeStrawberry.jpg" style="opacity:0">
-    <img src="images/pastelArandanos.jpg" style="opacity:0">
-  </section>
+    <main>
+        <!-- HERO -->
+        <section class="hero">
+            <img src="images/cakeNuts.webp" style="opacity:1">
+            <img src="images/cakeStrawberry.webp" style="opacity:0">
+            <img src="images/pastelArandanos.webp" style="opacity:0">
+        </section>
 
-  <!-- CATEGORIAS -->
-  <div class="categories">
-    <button onclick="filter('all')">Todas</button>
-    <button onclick="filter('chocolate')">Chocolate</button>
-    <button onclick="filter('frutales')">Frutales</button>
-    <button onclick="filter('especiales')">Especiales</button>
-  </div>
+        <!-- CATEGORIAS -->
+        <div class="categories">
+            <button onclick="filter('all')">Todas</button>
+            <button onclick="filter('chocolate')">Chocolate</button>
+            <button onclick="filter('frutales')">Frutales</button>
+            <button onclick="filter('especiales')">Especiales</button>
+        </div>
 
-  <!-- PRODUCTOS -->
-  <section class="products" id="products"></section>
+        <!-- PRODUCTOS -->
+        <section class="products" id="products"></section>
 
-  <!-- MODAL CARRITO -->
-    <div id="cartModal" class="cart-modal">
-        <div class="cart-content">
-            <span class="cart-close">&times;</span>
-            <h2>🛒 Tu Carrito</h2>
+        <!-- MODAL CARRITO -->
+        <div id="cartModal" class="cart-modal">
+            <div class="cart-content">
+                <span class="cart-close">&times;</span>
+                <h2>🛒 Tu Carrito</h2>
 
-            <div id="cartItems"></div>
+                <div id="cartItems"></div>
 
-            <div class="cart-footer">
-                <p>Total: <strong>S/ <span id="cartTotal">0</span></strong></p>
-                <button id="checkoutBtn" class="checkout-btn" onclick="sendToWhatsApp()">Finalizar pedido</button>
-                <div class="pay-buttons">
-                    <button id="yapeBtn" class="yape-btn" onclick="openPaymentModal('yape')">
-                    💜 Pagar con Yape
+                <div class="cart-footer">
+                    <p>Total: <strong>S/ <span id="cartTotal">0</span></strong></p>
+                    <button id="checkoutBtn" class="checkout-btn" onclick="sendToWhatsApp()">Finalizar pedido</button>
+                    <div class="pay-buttons">
+                        <button id="yapeBtn" class="yape-btn" onclick="openPaymentModal('yape')">
+                        💜 Pagar con Yape
+                        </button>
+                        <button id="plinBtn" class="plin-btn" onclick="openPaymentModal('plin')">
+                        💚 Pagar con Plin
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL PAGO -->
+        <div id="paymentModal" class="cart-modal">
+            <div class="cart-content">
+                <span class="cart-close" onclick="closePaymentModal()">&times;</span>
+
+                <!-- PASO 1 -->
+                <div id="customerStep">
+                    <h2>📝 Datos de entrega</h2>
+
+                    <input type="text" id="customerName" placeholder="Nombre completo">
+                    <input type="text" id="customerAddress" placeholder="Dirección de entrega">
+
+                    <button class="checkout-btn" onclick="validateCustomerData()">
+                        Continuar con el pago
                     </button>
-                    <button id="plinBtn" class="plin-btn" onclick="openPaymentModal('plin')">
-                    💚 Pagar con Plin
+                </div>
+
+                <!-- PASO 2 -->
+                <div id="paymentStep" style="display:none">
+                    <h2 id="paymentTitle"></h2>
+
+                    <p><strong>Número:</strong></p>
+                    <h3 id="paymentNumber"></h3>
+
+                    <p>Total a pagar:</p>
+                    <h2>S/ <span id="paymentTotal"></span></h2>
+
+                    <div class="qr-box">
+                        <img id="paymentQR" src="" alt="QR de pago">
+                        <p>Escanea el QR para pagar</p>
+                    </div>
+
+                    <!-- Confirmacion de pago CHECKBOX + Codigo -->
+                    <div class="payment-validation">
+                        <label>
+                            <input type="checkbox" id="paymentConfirmed">
+                            Confirmo que ya realicé el pago
+                        </label>
+
+                        <input
+                            type="text"
+                            id="operationCode"
+                            placeholder="Código de operación (opcional)">
+                    </div>
+
+                    <button class="checkout-btn" onclick="sendPaymentProof()">
+                        📲 Enviar comprobante
                     </button>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 
-    <!-- MODAL PAGO -->
-    <div id="paymentModal" class="cart-modal">
-        <div class="cart-content">
-            <span class="cart-close" onclick="closePaymentModal()">&times;</span>
-
-            <!-- PASO 1 -->
-            <div id="customerStep">
-            <h2>📝 Datos de entrega</h2>
-
-            <input type="text" id="customerName" placeholder="Nombre completo">
-            <input type="text" id="customerAddress" placeholder="Dirección de entrega">
-
-            <button class="checkout-btn" onclick="validateCustomerData()">
-                Continuar con el pago
-            </button>
-            </div>
-
-            <!-- PASO 2 -->
-            <div id="paymentStep" style="display:none">
-                <h2 id="paymentTitle"></h2>
-
-                <p><strong>Número:</strong></p>
-                <h3 id="paymentNumber"></h3>
-
-                <p>Total a pagar:</p>
-                <h2>S/ <span id="paymentTotal"></span></h2>
-
-                <div class="qr-box">
-                    <img id="paymentQR" src="" alt="QR de pago">
-                    <p>Escanea el QR para pagar</p>
-                </div>
-
-                <!-- Confirmacion de pago CHECKBOX + Codigo -->
-                <div class="payment-validation">
-                    <label>
-                        <input type="checkbox" id="paymentConfirmed">
-                        Confirmo que ya realicé el pago
-                    </label>
-
-                    <input
-                        type="text"
-                        id="operationCode"
-                        placeholder="Código de operación (opcional)">
-                </div>
-
-                <button class="checkout-btn" onclick="sendPaymentProof()">
-                    📲 Enviar comprobante
-                </button>
-            </div>
-        </div>
-    </div>
-
-
-  <!-- FOOTER -->
+    <!-- FOOTER -->
     <footer class="premium-footer">
         <div class="footer-container">
             <!-- MARCA -->
